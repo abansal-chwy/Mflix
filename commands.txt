@@ -1,0 +1,5 @@
+#loads the data into mongodb
+mongoimport --type csv --headerline --db mflix --collection movies_initial --host "<CLUSTER>/<SEED_LIST>" --authenticationDatabase admin --ssl --username analytics --password analytics-password --file movies_initial.csv
+
+
+mongoimport --headerline --host mflix-shard-0/mflix-shard-00-00-ey6di.mongodb.net:27017,mflix-shard-00-01-ey6di.mongodb.net:27017,mflix-shard-00-02-ey6di.mongodb.net:27017 --ssl --username analytics --password analytics-password --authenticationDatabase admin --db mflix --collection movies_initial --type csv --file movies_initial.csv
